@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 import datetime
 
@@ -17,6 +17,14 @@ def index():
 def second():
 	return render_template("second.html")
 
+@app.route("/hello",methods=["GET","POST"])
+def hello():
+	if request.method == "GET":
+		return "Please submit the form instead."
+	else:	
+		name = request.form.get('name')
+		return render_template("hello.html",name=name)	
+
 @app.route("/<string:name>")
-def hello(name):
+def hi(name):
 	return f"Hello,{name}!"
