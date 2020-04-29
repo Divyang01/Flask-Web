@@ -11,7 +11,7 @@ def index():
 	#new_year = True
 	#headline = "hello world"
 	lists = ["alice","bob","charlies","devid"]
-	return render_template("hello.html",new_year = new_year,list = lists)
+	return render_template("index.html",new_year = new_year,list = lists)
 
 @app.route("/second")
 def second():
