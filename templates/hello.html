@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>My webpage</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block heading %}
+	First page
+{% endblock %}
+
+
+{% block body %}
 	{% if new_year %}
 	    <h1>Yes, it is new year</h1>
 	{% else %}
@@ -21,5 +23,5 @@
 	<p>Scarlett Ingrid Johansson is an American actress and singer. The world's highest-paid actress since 2018, she has made multiple appearances in the Forbes Celebrity 100. Her films have grossed over $14.3 billion worldwide, making Johansson the ninth-highest-grossing box office star of all time</p>
 
 	<a href="{{url_for('second')}}">go to second page</a>
-</body>
-</html>
+
+{% endblock %}
