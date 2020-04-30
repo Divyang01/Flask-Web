@@ -1,10 +1,27 @@
 
 {% block heading %}
 	post-get method
+</br>
+</br>
 {% endblock %}
 
 {% block body %}
 
 	Hello, {{ name }}!
+
+	<h3>Notes</h3>
+	<ul>
+		{% for note in notes %}
+		{% if note %}
+			<li>{{ note }}</li>
+		{% endif %}	
+		{% endfor %}
+	</ul>
+
+	<form action="{{ url_for('hello') }}" method="post">
+		<input type="text" name="note" placeholder="Enter the notes">
+		<button>Add note</button>
+		
+	</form>
 
 {% endblock %}
