@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+  zometo user detail
+{% endblock %}
+
+{% block body %}
+  <table>
+  	<tr>
+  		<th>id</th>
+  		<th>name</th>
+  		<th>mobile</th>
+  		<th>email</th>
+  	</tr>
+  	{% for i,j,k,m in detail %}
+  	<tr>
+  		<td>{{ i }}</td>
+  		<td>{{ j }}</td>
+  		<td>{{ k }}</td>
+  		<td>{{ m }}</td>
+  	</tr>
+  	{% endfor %}	
+  </table>	
+  
+
+{% endblock %}

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session
 from flask_session import Session
-
+from sqlwork import main
+from flask import jsonify
 import datetime
 
 app = Flask(__name__)
@@ -41,3 +42,23 @@ def hello():
 @app.route("/<string:name>")
 def hi(name):
 	return f"Hello,{name}!"
+
+
+@app.route("/userdetail")
+def userdetail():
+	detail = main()
+	return render_template("userdetail.html",detail=detail)
+
+@app.route("/api/userdetail")
+def userapi():
+	list = []
+	
+	for i,j,k,l in main():
+		thisdict =	{}
+		thisdict["id"] = i
+		thisdict["name"] = j
+		thisdict["mobile"] = k
+		thisdict["email"] = l
+		list.append(thisdict)
+		
+	return jsonify({"zometo_user_data":list})
